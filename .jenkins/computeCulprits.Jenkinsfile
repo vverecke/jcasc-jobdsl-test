@@ -3,7 +3,7 @@ import jenkins.model.Jenkins
 def String getFailedBuildHistory() {
     def message = ''
     // Iterate over previous broken builds to find culprits
-    def fullName = 'test-notif'
+    def fullName = 'compute-culprits-testrepo'
     // debug pipeline used for testing
     def jobData = Jenkins.instance.getItemByFullName(fullName)
     def lastStableBuild = jobData.getLastStableBuild()
