@@ -97,9 +97,9 @@ spec:
                 unsuccessful {
                     script {
                         def culprits = getFailedBuildHistory()
-                        def userIds = slackUserIdsFromCommitters()
+                        def userIds = slackUserIdsFromCommitters(botUser: true)
                         def userIdsString = userIds.collect { "<@$it>" }.join(' ')
-                        slackSend(color: 'danger', message: "${env.JOB_NAME} ${env.BUILD_NUMBER} Failed. \nCommiter(s): $userIdsString \nPossible Culprit(s): $culprits \n(<${env.BUILD_URL}|Open>) ", notifyCommitters: true)
+                        slackSend(color: 'danger', message: "${env.JOB_NAME} ${env.BUILD_NUMBER} Failed. \nSlackUserIdFromCommiter(s): $userIdsString \nPossible Culprit(s): $culprits \n(<${env.BUILD_URL}|Open>) ", notifyCommitters: true)
                     }
                 }
             }
